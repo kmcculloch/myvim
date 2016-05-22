@@ -1,12 +1,36 @@
-" K. McCULLOCH VIMRC
+"fancy-layout K. McCULLOCH VIMRC
 " vim: foldmethod=marker
-" to inspect local environment:
-" http://vim.wikia.com/wiki/Displaying_the_current_Vim_environment
 
-" OPTIONS ================================================================== {{{
-
+" VUNDLE ================================================================== {{{
+" initialize Vundle
 set nocompatible "use Vim (not Vi) option defaults
+filetype off "required to initialize Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
+" let vundle manage itself (required)
+Plugin 'VundleVim/Vundle.vim'
+
+" essential plugins from scrooloose
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+
+" other window-related plugins
+Plugin 'vim-airline/vim-airline'
+
+" colorscheme plugins
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'morhetz/gruvbox'
+
+" my personal libraries
+Plugin 'kmcculloch/vim-cabbrevplus'
+Plugin 'kmcculloch/vim-fancy-layout'
+Plugin 'kmcculloch/vim-php'
+
+call vundle#end()
+" }}}
+" OPTIONS ================================================================== {{{
 filetype on "source .vim/filetype.vim
 filetype plugin on "source .vim/ftplugin
 filetype indent on "source .vim/indent
@@ -66,12 +90,13 @@ set switchbuf=useopen "buffer exists in open window, jump there
 set modeline
 set modelines=5
 
+" to set paste, go into insert mode then use the F2 key
+set pastetoggle=<F2>
+
 " }}}
 " NORMAL MODE MAPPINGS ===================================================== {{{
 
 " use the space bar as the mapleader key
-"nnoremap <Space> <Nop>
-"let mapleader = " "
 map <Space> <Leader>
 
 " use the tab key for escape operations, such as cancelling prefix keys
@@ -172,12 +197,6 @@ nnoremap <Leader>wn :echo 'Window number: ' . winnr()<CR>
 " exit insert mode and restore cursor position (no move left)
 inoremap <tab> <Esc>`^
 
-" in insert mode, use the Esc key for tabs
-"inoremap <Esc> <tab>
-
-" use ctrl-u to make a word upper case in insert mode
-inoremap <c-u> <esc>vawgUi
-
 " }}}
 " VISUAL MODE MAPPINGS ===================================================== {{{
 
@@ -202,20 +221,62 @@ xnoremap <Leader>F 24kzz
 onoremap <tab> <Esc>
 
 " }}}
-" COMMAND MAPPINGS ========================================================= {{{
+" COLORSCHEME ============================================================== {{{
 
-" use W to save file as sudo
-" commented out; interferes with NerdTREE grepping for words that start with
-" "W". @todo fix?
-"cmap W w !sudo tee % >/dev/null<CR>
+" in general we like a dark background
+set background=dark
+" be sure we're using all of our terminal's 256 colors
+" NOTE: To get the best effect with Gruvbox, run the shell script to
+" set the precise 256 color values that Gruvbox likes
+set t_Co=256
+
+" GRUVBOX
+let g:gruvbox_italic=0
+
+" SOLARIZED
+let g:solarized_italic=0
+let g:solarized_underline=0
+
+" TURN ON COLORSCHEME OF CHOICE
+colorscheme gruvbox
+"colorscheme solarized
 
 " }}}
-" CUSTOM AUTOCMDS  ========================================================= {{{
+" NERDCOMMENTER============================================================= {{{
 
-" fold settings.php comments
-augroup settings_php
-  autocmd!
-  autocmd BufRead settings.php setlocal foldmethod=syntax
-augroup END
+let g:NERDCustomDelimiters = {
+      \ 'php': {'left': '// ', 'leftAlt': '/*', 'rightAlt': '*/' }
+      \ }
+
+" }}}
+" NERDTREE ================================================================= {{{
+
+call cabbrevplus#Cabbrev('nt', 'NERDTree')
+call cabbrevplus#Cabbrev('nb', 'Bookmark')
+call cabbrevplus#Cabbrev('nc', 'ClearBookmarks')
+let NERDTreeShowHidden=1
+let NERDTreeShowBookmarks=1
+
+" }}}
+" AIRLINE ================================================================== {{{
+
+" Turn on airline's tabline extension to use the tabline to display buffers
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#buffer_nr_format = '%s:'
+
+" }}}
+" FANCY LAYOUT ============================================================= {{{
+
+call cabbrevplus#Cabbrev('fi', 'FancyLayoutInit')
+
+" Use our custom quit routines for all window/buffer delete commands
+"call cabbrevplus#Cabbrev('bd', 'FancyLayoutQ')
+"call cabbrevplus#Cabbrev('bw', 'FancyLayoutQ')
+"call cabbrevplus#Cabbrev('bu', 'FancyLayoutQ')
+"call cabbrevplus#Cabbrev('bun', 'FancyLayoutQ')
+"call cabbrevplus#Cabbrev('q', 'FancyLayoutQ')
+"call cabbrevplus#Cabbrev('wq', 'FancyLayoutWQ')
 
 " }}}
