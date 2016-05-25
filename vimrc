@@ -232,6 +232,7 @@ set t_Co=256
 
 " GRUVBOX
 let g:gruvbox_italic=0
+let g:gruvbox_contrast_dark="hard"
 
 " SOLARIZED
 let g:solarized_italic=0
