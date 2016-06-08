@@ -2,4 +2,3 @@
 tags
 bundle/*
 !bundle/Vundle.vim
-!bundle/vim-plugin-for-drupal
