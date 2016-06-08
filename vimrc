@@ -252,9 +252,6 @@ let g:NERDCustomDelimiters = {
 " }}}
 " NERDTREE ================================================================= {{{
 
-call cabbrevplus#Cabbrev('nt', 'NERDTree')
-call cabbrevplus#Cabbrev('nb', 'Bookmark')
-call cabbrevplus#Cabbrev('nc', 'ClearBookmarks')
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
 
@@ -268,16 +265,21 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_format = '%s:'
 
 " }}}
-" FANCY LAYOUT ============================================================= {{{
+" CABBREV-PLUS ============================================================= {{{
 
-call cabbrevplus#Cabbrev('fi', 'FancyLayoutInit')
+if !empty(glob("bundle/vim-cabbrevplus/autoload/cabbrevplus.vim"))
+  call cabbrevplus#Cabbrev('nt', 'NERDTree')
+  call cabbrevplus#Cabbrev('nb', 'Bookmark')
+  call cabbrevplus#Cabbrev('nc', 'ClearBookmarks')
+  call cabbrevplus#Cabbrev('fi', 'FancyLayoutInit')
 
-" Use our custom quit routines for all window/buffer delete commands
-"call cabbrevplus#Cabbrev('bd', 'FancyLayoutQ')
-"call cabbrevplus#Cabbrev('bw', 'FancyLayoutQ')
-"call cabbrevplus#Cabbrev('bu', 'FancyLayoutQ')
-"call cabbrevplus#Cabbrev('bun', 'FancyLayoutQ')
-"call cabbrevplus#Cabbrev('q', 'FancyLayoutQ')
-"call cabbrevplus#Cabbrev('wq', 'FancyLayoutWQ')
+  " Use our custom quit routines for all window/buffer delete commands
+  "call cabbrevplus#Cabbrev('bd', 'FancyLayoutQ')
+  "call cabbrevplus#Cabbrev('bw', 'FancyLayoutQ')
+  "call cabbrevplus#Cabbrev('bu', 'FancyLayoutQ')
+  "call cabbrevplus#Cabbrev('bun', 'FancyLayoutQ')
+  "call cabbrevplus#Cabbrev('q', 'FancyLayoutQ')
+  "call cabbrevplus#Cabbrev('wq', 'FancyLayoutWQ')
+endif
 
 " }}}
