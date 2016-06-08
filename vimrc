@@ -267,19 +267,17 @@ let g:airline#extensions#tabline#buffer_nr_format = '%s:'
 " }}}
 " CABBREV-PLUS ============================================================= {{{
 
-if !empty(glob("bundle/vim-cabbrevplus/autoload/cabbrevplus.vim"))
-  call cabbrevplus#Cabbrev('nt', 'NERDTree')
-  call cabbrevplus#Cabbrev('nb', 'Bookmark')
-  call cabbrevplus#Cabbrev('nc', 'ClearBookmarks')
-  call cabbrevplus#Cabbrev('fi', 'FancyLayoutInit')
+:silent! call cabbrevplus#Cabbrev('nt', 'NERDTree')
+:silent! call cabbrevplus#Cabbrev('nb', 'Bookmark')
+:silent! call cabbrevplus#Cabbrev('nc', 'ClearBookmarks')
+:silent! call cabbrevplus#Cabbrev('fi', 'FancyLayoutInit')
 
-  " Use our custom quit routines for all window/buffer delete commands
-  "call cabbrevplus#Cabbrev('bd', 'FancyLayoutQ')
-  "call cabbrevplus#Cabbrev('bw', 'FancyLayoutQ')
-  "call cabbrevplus#Cabbrev('bu', 'FancyLayoutQ')
-  "call cabbrevplus#Cabbrev('bun', 'FancyLayoutQ')
-  "call cabbrevplus#Cabbrev('q', 'FancyLayoutQ')
-  "call cabbrevplus#Cabbrev('wq', 'FancyLayoutWQ')
-endif
+" Use our custom quit routines for all window/buffer delete commands
+"call cabbrevplus#Cabbrev('bd', 'FancyLayoutQ')
+"call cabbrevplus#Cabbrev('bw', 'FancyLayoutQ')
+"call cabbrevplus#Cabbrev('bu', 'FancyLayoutQ')
+"call cabbrevplus#Cabbrev('bun', 'FancyLayoutQ')
+"call cabbrevplus#Cabbrev('q', 'FancyLayoutQ')
+"call cabbrevplus#Cabbrev('wq', 'FancyLayoutWQ')
 
 " }}}
