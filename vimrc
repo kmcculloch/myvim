@@ -23,6 +23,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'morhetz/gruvbox'
 
+" drupal
+Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
+
 " my personal libraries
 Plugin 'kmcculloch/vim-cabbrevplus'
 Plugin 'kmcculloch/vim-fancy-layout'
