@@ -1,5 +1,5 @@
 .DS_Store
 tags
-bundle/
+bundle/*
 !bundle/Vundle.vim
 !bundle/vim-plugin-for-drupal
