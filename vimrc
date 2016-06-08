@@ -239,7 +239,7 @@ let g:solarized_italic=0
 let g:solarized_underline=0
 
 " TURN ON COLORSCHEME OF CHOICE
-colorscheme gruvbox
+:silent! colorscheme gruvbox
 "colorscheme solarized
 
 " }}}
