@@ -16,3 +16,12 @@ ln -s /path/to/myvim/vimrc .vimrc
 vi
 :PluginInstall
 ```
+
+Recommended lint packages:
+
+```
+composer install global phpcs
+npm install -g eslint
+npm install -g csslint
+npm install -g sass-lint
+```

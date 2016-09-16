@@ -1,44 +1,106 @@
-"fancy-layout K. McCULLOCH VIMRC
+" K. McCULLOCH VIMRC
 " vim: foldmethod=marker
 
-" VUNDLE ================================================================== {{{
-" initialize Vundle
+" PLUGINS ================================================================== {{{
+" Overview of plugin structure from Learn Vimscript the Hard Way:
+" http://learnvimscriptthehardway.stevelosh.com/chapters/42.html
+" The two common plugin installers are Pathogen and Vundle. I use Vundle.
+
+" Vundle works by adding all of the installed plugins to the runtimepath.
+" The order of directories in the path determines the order in which scripts
+" are loaded and applied.
+" You can inspect the path using:
+" :set runtimepath?
+" The general execution order is:
+" ~/.vim
+" ~/.vim/bundle/{bundles_in_order_of_addition}
+" $VIM/vimfiles
+" $VIM/vimfiles/after
+" ~/.vim/after
+" ~/.vim/bundle/{bundles_in_order_of_addition}/after
+
+" The after/ directory is a convention for overriding vim defaults and other
+" plugins. If a plugin includes its own after/ directory it gets the last
+" word, but this is rare.
+
+" Initialize Vundle.
 set nocompatible "use Vim (not Vi) option defaults
 filetype off "required to initialize Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let vundle manage itself (required)
+" Let vundle manage itself (required).
 Plugin 'VundleVim/Vundle.vim'
 
-" essential plugins from scrooloose
+" Essential plugins from scrooloose.
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 
-" other window-related plugins
+" Other window-related plugins.
 Plugin 'vim-airline/vim-airline'
 
-" colorscheme plugins
+" Colorscheme plugins.
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'morhetz/gruvbox'
 
-" drupal
-Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
+" Drupal.
+" This will clone down the entire vimrc repo, which includes some top-level
+" documentation.
+" The plugin itself will wind up in bundle/vimrc/bundle/vim-plugin-for-drupal.
+Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal'}
 
-" my personal libraries
+" My personal libraries.
 Plugin 'kmcculloch/vim-cabbrevplus'
 Plugin 'kmcculloch/vim-fancy-layout'
 Plugin 'kmcculloch/vim-php'
 
 call vundle#end()
 " }}}
-" OPTIONS ================================================================== {{{
-filetype on "source .vim/filetype.vim
-filetype plugin on "source .vim/ftplugin
-filetype indent on "source .vim/indent
-syntax on "source .vim/syntax
+" FILETYPE ================================================================= {{{
 
+" See :help filetype
+" There are several discreet operations involved in filetype handling.
+"
+" The first is filetype detection. This is handled via filetype.vim files and
+" files inside ftdetect/ directories.
+" Vim will look inside its runtimepath for filetype.vim files.
+" Next, it will look for ftdetect/ directories and run all of the files
+" it finds.
+" Note that it's also possible to do manually tweak the filetype using
+" commands in files inside plugin/ directories which are always run when
+" vim loads. The vimrc bundle for Drupal does this to append .drupal to
+" certain files.
+filetype on
+
+" The next thing that happens is that vim sources ftplugin/ files whose names
+" match the detected filetype. These set local buffer options.
+filetype plugin on
+
+" Next are indentation settings. These are files inside indent/ folders.
+filetype indent on
+
+" Very few filetypes have specialized indent files. Generally, indentation
+" is based on general vim options.
+" Here are the options for tabs:
+set tabstop=2 "change the width of the tab character to x spaces
+set expandtab "tell vim to insert spaces whenever the tab key is pressed
+set softtabstop=2 "indicate how many spaces to use in lieu of a tab character
+
+" Here are the options for autoindenting. Note that smartindent can interfere
+" with file-specific indentation settings. The vimrc plugin always turns it
+" on for .drupal files, but it interferes with scss indentation so I have
+" disabled it in the after/ directory.
+set shiftwidth=2 "indicate the number of characters used in autoindent
+set autoindent "copy indent from current line when starting a new line
+set nosmartindent "add an extra level of indentation for C-like files
+set nocindent "more advanced C-like indentation
+
+" Finally, vim loads files from the syntax/ directory to enable syntax
+" highlighting.
+syntax on
+" }}}
+" OPTIONS ================================================================== {{{
 set nobackup "do not make a backup before overwriting a file
 set noswapfile "do not use a swapfile for the buffer
 set shortmess=atI "shorten various system messages
@@ -77,13 +139,6 @@ set notitle "prefer to have username@hostname in bash window title per default
 
 set number "turn on left-hand numbering
 set numberwidth=5 "use 5 spaces for left-hand number column
-
-set expandtab "use spaces instead of tab character
-set tabstop=2 "tab stops calculated every 2 spaces
-
-set autoindent "copy indent from current line when starting a new line
-set smartindent "autoindent automatically based on syntax
-set shiftwidth=2 "number of spaces to use for each step of autoindent
 
 set linebreak "wrap long lines rather than entering line breaks
 
@@ -266,6 +321,15 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_format = '%s:'
+
+" }}}
+" SYNTASTIC ================================================================ {{{
+let g:syntastic_php_checkers = ['php', 'phpcs']
+let g:syntastic_javascript_checkers = ['eslint']
+" @todo confirm that this respects the .csslintrc directives inside a project.
+let g:syntastic_css_checkers = ['csslint']
+let g:syntastic_sass_checkers = ['sass_lint']
+let g:syntastic_scss_checkers = ['sass_lint']
 
 " }}}
 " CABBREV-PLUS ============================================================= {{{
