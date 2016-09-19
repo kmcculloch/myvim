@@ -26,7 +26,11 @@
 " Initialize Vundle.
 set nocompatible "use Vim (not Vi) option defaults
 filetype off "required to initialize Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
+if !empty($KM_VIM)
+  set rtp+=$KM_VIM/bundle/Vundle.vim
+else
+  set rtp+=~/.vim/bundle/Vundle.vim
+endif
 call vundle#begin()
 
 " Let vundle manage itself (required).
