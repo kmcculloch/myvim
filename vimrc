@@ -41,6 +41,9 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 
+" Help syntastic to use the project-local version of eslint.
+Plugin 'mtscout6/syntastic-local-eslint.vim'
+
 " Other window-related plugins.
 Plugin 'vim-airline/vim-airline'
 
