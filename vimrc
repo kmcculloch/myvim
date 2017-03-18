@@ -44,6 +44,10 @@ Plugin 'scrooloose/syntastic'
 " Help syntastic to use the project-local version of eslint.
 Plugin 'mtscout6/syntastic-local-eslint.vim'
 
+" React js syntax
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+
 " Other window-related plugins.
 Plugin 'vim-airline/vim-airline'
 
@@ -353,5 +357,10 @@ let g:syntastic_scss_checkers = ['sass_lint']
 "call cabbrevplus#Cabbrev('bun', 'FancyLayoutQ')
 "call cabbrevplus#Cabbrev('q', 'FancyLayoutQ')
 "call cabbrevplus#Cabbrev('wq', 'FancyLayoutWQ')
+
+" }}}
+" VIM-JSX ============================================================= {{{
+
+let g:jsx_ext_required = 0
 
 " }}}
