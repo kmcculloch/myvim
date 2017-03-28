@@ -260,6 +260,8 @@ nnoremap <Leader>wf :vertical resize 87<CR>:set winfixwidth<CR>
 nnoremap <Leader>wd :echo 'Window width: ' . winwidth(0)<CR>
 nnoremap <Leader>wn :echo 'Window number: ' . winnr()<CR>
 
+" Open current file in Chrome
+nnoremap <Leader>gc :!open -a 'Google Chrome' %<CR><CR>
 " }}}
 " INSERT MODE MAPPINGS ===================================================== {{{
 
