@@ -26,12 +26,15 @@
 " Initialize Vundle.
 set nocompatible "use Vim (not Vi) option defaults
 filetype off "required to initialize Vundle
+
+" Set proper path to vim bundles, depending on environment
 if !empty($KM_VIM)
-  set rtp+=$KM_VIM/bundle/Vundle.vim
+  set rtp+=$KM_VIM/vim/bundle/Vundle.vim
+  call vundle#begin($KM_VIM . '/vim/bundle')
 else
   set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
 endif
-call vundle#begin()
 
 " Let vundle manage itself (required).
 Plugin 'VundleVim/Vundle.vim'
