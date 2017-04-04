@@ -1,5 +1,5 @@
 .DS_Store
 tags
-bundle/*
-!bundle/Vundle.vim
+vim/bundle/*
+!vim/bundle/Vundle.vim
 .netrwhist
