@@ -51,6 +51,9 @@ Plugin 'mtscout6/syntastic-local-eslint.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
+" Typescript js syntax
+Plugin 'leafgarland/typescript-vim'
+
 " Other window-related plugins.
 Plugin 'vim-airline/vim-airline'
 
