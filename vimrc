@@ -44,6 +44,9 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 
+" Add git status to NERDTree
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
 " Help syntastic to use the project-local version of eslint.
 Plugin 'mtscout6/syntastic-local-eslint.vim'
 
@@ -268,6 +271,8 @@ nnoremap <Leader>wn :echo 'Window number: ' . winnr()<CR>
 
 " Open current file in Chrome
 nnoremap <Leader>gc :!open -a 'Google Chrome' %<CR><CR>
+
+nnoremap <Leader>q :bp<bar>sp<bar>bn<bar>bd<CR><CR>
 " }}}
 " INSERT MODE MAPPINGS ===================================================== {{{
 
@@ -331,6 +336,7 @@ let g:NERDCustomDelimiters = {
 
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
+let g:NERDTreeShowIgnoredStatus=1
 
 " }}}
 " AIRLINE ================================================================== {{{
@@ -343,12 +349,18 @@ let g:airline#extensions#tabline#buffer_nr_format = '%s:'
 
 " }}}
 " SYNTASTIC ================================================================ {{{
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "passive_filetypes": ["html"] }
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_javascript_checkers = ['eslint']
 " @todo confirm that this respects the .csslintrc directives inside a project.
 let g:syntastic_css_checkers = ['csslint']
 let g:syntastic_sass_checkers = ['sass_lint']
 let g:syntastic_scss_checkers = ['sass_lint']
+let g:syntastic_typescript_checkers = ['tslint']
+let g:syntastic_typescript_tslint_exec = '/Users/mccullok/git/cfsr.sso.dcn/opaf-web-team/coax-fe/node_modules/tslint/bin/tslint'
+let g:syntastic_typescript_tslint_args='--project /Users/mccullok/git/cfsr.sso.dcn/opaf-web-team/coax-fe/tsconfig.json --type-check'
 
 " }}}
 " CABBREV-PLUS ============================================================= {{{
