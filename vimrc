@@ -245,14 +245,6 @@ nnoremap <Leader>k <C-W><C-K>
 nnoremap <Leader>h <C-W><C-H>
 nnoremap <Leader>l <C-W><C-L>
 
-" change contents of parentheses, brackets, quotes, etc.
-nnoremap <Leader>c( vi(c
-nnoremap <Leader>c[ vi[c
-nnoremap <Leader>c{ vi{c
-nnoremap <Leader>c" vi"c
-nnoremap <Leader>c' vi'c
-nnoremap <Leader>c< vi<c
-
 " open and edit .vimrc
 nnoremap <leader>ev :edit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>

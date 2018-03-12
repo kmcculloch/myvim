@@ -1,4 +1,4 @@
-function CheckForSpec()
+function! CheckForSpec()
   let directory = expand('%:p:h')
   return directory =~ "/spec"
 endfunction
