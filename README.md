@@ -8,8 +8,8 @@ Installation:
 
 ```
 git clone https://github.com/kmcculloch/myvim
-cd myvim
-git submodule update --init
+cd myvim/vim/bundle
+git clone https://github.com/VundleVim/Vundle.vim.git
 cd $HOME
 ln -s /path/to/myvim/ .vim
 ln -s /path/to/myvim/vimrc .vimrc
