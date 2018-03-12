@@ -73,7 +73,6 @@ Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-
 " My personal libraries.
 Plugin 'kmcculloch/vim-cabbrevplus'
 Plugin 'kmcculloch/vim-fancy-layout'
-Plugin 'kmcculloch/vim-php'
 
 call vundle#end()
 " }}}
