@@ -59,6 +59,10 @@ Plugin 'leafgarland/typescript-vim'
 
 " Other window-related plugins.
 Plugin 'vim-airline/vim-airline'
+" The old showmarks script is now throwing a 'not possible to change sign'
+" error on every buffer, so let's try the newer vim-signature plugin.
+"Plugin 'zakj/vim-showmarks'
+Plugin 'kshenoy/vim-signature'
 
 " Colorscheme plugins.
 Plugin 'altercation/vim-colors-solarized'
@@ -181,7 +185,8 @@ map <Space> <Leader>
 nnoremap <tab> <Esc>
 
 " make sure marks move us back to the specified location
-nnoremap ' `
+" let's disable this while we get used to the new vim-signature plugin
+"nnoremap ' `
 
 " reverse paste/insert line to default to above for lowercase p/o
 nnoremap p P
