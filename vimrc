@@ -57,6 +57,9 @@ Plugin 'mxw/vim-jsx'
 " Typescript js syntax
 Plugin 'leafgarland/typescript-vim'
 
+" Handlebars js syntax
+Plugin 'mustache/vim-mustache-handlebars'
+
 " Other window-related plugins.
 Plugin 'vim-airline/vim-airline'
 " The old showmarks script is now throwing a 'not possible to change sign'
