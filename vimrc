@@ -348,6 +348,10 @@ let g:airline#extensions#tabline#buffer_nr_format = '%s:'
 
 " }}}
 " SYNTASTIC ================================================================ {{{
+
+" For debugging
+"let g:syntastic_debug=3
+
 let g:syntastic_mode_map = {
     \ "mode": "active",
     \ "passive_filetypes": ["html"] }
@@ -358,8 +362,10 @@ let g:syntastic_css_checkers = ['csslint']
 let g:syntastic_sass_checkers = ['sass_lint']
 let g:syntastic_scss_checkers = ['sass_lint']
 let g:syntastic_typescript_checkers = ['tslint']
-let g:syntastic_typescript_tslint_exec = '/Users/mccullok/git/cfsr.sso.dcn/opaf-web-team/coax-fe/node_modules/tslint/bin/tslint'
-let g:syntastic_typescript_tslint_args='--project /Users/mccullok/git/cfsr.sso.dcn/opaf-web-team/coax-fe/tsconfig.json --type-check'
+"let g:syntastic_typescript_tslint_exec='/Users/mccullok/git/cfsr.sso.dcn/opaf-web-team/coax-fe/node_modules/tslint/bin/tslint'
+"let g:syntastic_typescript_tslint_args='--project /Users/mccullok/git/cfsr.sso.dcn/opaf-web-team/coax-fe/tsconfig.json --type-check'
+"let g:syntastic_php_phpcs_exec='/Users/mccullok/vagrant/uscourts/vendor/bin/phpcs'
+"let g:syntastic_php_phpcs_args='--standard=/Users/mccullok/vagrant/uscourts/vendor/drupal/coder/coder_sniffer/Drupal'
 
 " }}}
 " CABBREV-PLUS ============================================================= {{{
@@ -383,3 +389,8 @@ let g:syntastic_typescript_tslint_args='--project /Users/mccullok/git/cfsr.sso.d
 let g:jsx_ext_required = 0
 
 " }}}
+
+" Execute local .vimrc files. This may be insecure; consider using a plugin
+" for per-project config.
+set exrc
+set secure

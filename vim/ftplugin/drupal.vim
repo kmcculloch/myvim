@@ -1,1 +1,1 @@
-let b:syntastic_php_phpcs_args='--standard=Drupal'
+"let b:syntastic_php_phpcs_args='--standard=Drupal'
