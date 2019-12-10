@@ -70,6 +70,7 @@ Plugin 'kshenoy/vim-signature'
 " Colorscheme plugins.
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'morhetz/gruvbox'
+Plugin 'arcticicestudio/nord-vim'
 
 " Drupal.
 " This will clone down the entire vimrc repo, which includes some top-level
@@ -350,20 +351,22 @@ let g:airline#extensions#tabline#buffer_nr_format = '%s:'
 " SYNTASTIC ================================================================ {{{
 
 " For debugging
-"let g:syntastic_debug=3
+" @see https://medium.com/@hpux/vim-and-eslint-16fa08cc580f
+":let g:syntastic_debug=3
+":SyntasticCheck eslint
+":mes
 
-let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "passive_filetypes": ["html"] }
-let g:syntastic_php_checkers = ['php', 'phpcs']
-let g:syntastic_javascript_checkers = ['eslint']
+
+"let g:syntastic_mode_map = {
+    "\ "mode": "active",
+    "\ "passive_filetypes": ["html"] }
+"let g:syntastic_php_checkers = ['php', 'phpcs']
+"let g:syntastic_javascript_checkers = ['eslint']
 " @todo confirm that this respects the .csslintrc directives inside a project.
-let g:syntastic_css_checkers = ['csslint']
-let g:syntastic_sass_checkers = ['sass_lint']
-let g:syntastic_scss_checkers = ['sass_lint']
-let g:syntastic_typescript_checkers = ['tslint']
-"let g:syntastic_typescript_tslint_exec='/Users/mccullok/git/cfsr.sso.dcn/opaf-web-team/coax-fe/node_modules/tslint/bin/tslint'
-"let g:syntastic_typescript_tslint_args='--project /Users/mccullok/git/cfsr.sso.dcn/opaf-web-team/coax-fe/tsconfig.json --type-check'
+"let g:syntastic_css_checkers = ['csslint']
+"let g:syntastic_sass_checkers = ['sass_lint']
+"let g:syntastic_scss_checkers = ['sass_lint']
+"let g:syntastic_typescript_checkers = ['tslint']
 
 " }}}
 " CABBREV-PLUS ============================================================= {{{
