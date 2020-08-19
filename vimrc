@@ -336,7 +336,8 @@ let g:NERDCustomDelimiters = {
 
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
-let g:NERDTreeShowIgnoredStatus=1
+"let g:NERDTreeShowIgnoredStatus=1
+let g:NERDTreeGitStatusShowIgnored=1
 
 " }}}
 " AIRLINE ================================================================== {{{
