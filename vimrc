@@ -76,7 +76,7 @@ Plugin 'arcticicestudio/nord-vim'
 " This will clone down the entire vimrc repo, which includes some top-level
 " documentation.
 " The plugin itself will wind up in bundle/vimrc/bundle/vim-plugin-for-drupal.
-Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal'}
+Plugin 'https://git.drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal'}
 
 " My personal libraries.
 Plugin 'kmcculloch/vim-cabbrevplus'
